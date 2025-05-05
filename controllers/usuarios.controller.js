@@ -7,14 +7,20 @@ exports.atualizarUsuario = async (req, res) => {
         const idUsuário = Number(req.params.id);
         const resultado = await mysql.execute(
             `UPDATE users
-                SET name    = ?,
-                   email    = ?,
-                   password = ?
-	        WHERE id = ?;`,
+                SET first_name  = ?,
+                    last_name   = ?,
+                    email = ?,
+                    password = ?,
+                    birth_date = ?,
+                    phone = ?
+	         WHERE id = ?;`,
             [
-                req.body.name,
+                req.body.first_name,
+                req.body.last_name,
                 req.body.email,
                 req.body.password,
+                req.body.birth_date,
+                req.body.phone,
                 idUsuário
             ]
         );
@@ -35,12 +41,15 @@ exports.atualizarUsuario = async (req, res) => {
 exports.cadastrarUsuario = async (req, res) => {
     try {
         const resultado = await mysql.execute(
-            `INSERT  INTO   users(name, email, password)
-		             VALUES  (?, ?, ?);`,
+            `INSERT INTO users (first_name, last_name, email, password, birth_date, phone)
+		VALUES (?, ?, ?, ?, ?, ?);`,
             [
-                req.body.name,
+                req.body.first_name,
+                req.body.last_name,
                 req.body.email,
-                req.body.password
+                req.body.password,
+                req.body.birth_date,
+                req.body.phone
             ]
         );
 
