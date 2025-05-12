@@ -6,6 +6,7 @@ const helmet = require("helmet")
 
 //rota para o arquivo de usuários
 const usuariosRoute = require("./routes/usuarios.route");
+const filasRoute = require("./routes/filas.routes");
 
 
 //middleware = processa req antes de chegar na rota 
@@ -29,5 +30,6 @@ app.use((req, res, next) => {
 });
 
 app.use("/usuarios", usuariosRoute);
+app.use("/filas",filasRoute)
 
 module.exports = app;
