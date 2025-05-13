@@ -1,10 +1,11 @@
 const jwt = require("jsonwebtoken");
 
+
 exports.required = async(req, res, next) =>{
     try{
         res.locals.idusuario = 0;
 
-        const token = req.headers.authorization.split("")[1];
+        const token = req.headers.authorization.split(" ")[1];
         const decode = jwt.decode(token, "senhadojwt");
 
         if (decode.id){
