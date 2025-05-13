@@ -34,7 +34,7 @@ exports.atualizarUsuario = async (req, res) => {
         });
 
     } catch (error) {
-        return res.status(500).send({ "Mensagem": error });
+        return res.status(500).send (error);
     }
 
 };
@@ -65,7 +65,7 @@ exports.cadastrarUsuario = async (req, res) => {
 
     } catch (error) {
         console.log("Erro ao cadastrar o usuário: ", error);
-        return res.status(500).send({ "Mensagem": error });
+        return res.status(500).send(error);
     }
 };
 
@@ -107,5 +107,5 @@ exports.login = async (req, res) => {
 
 
     }catch(error){
-        return res.status(500).send({ "Mensagem": error });
+        return res.status(500).send(error);
     }};

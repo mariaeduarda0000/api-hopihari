@@ -5,7 +5,7 @@ exports.entrarFila = async(req, res, next) =>{
         const resultados = await mysql.execute(
             `INSERT INTO lines (id_user, id_rides) VALUES(?, ?)`,
              [res.locals.idusuario, req.params.idRide]);
-    }catch{
+    }catch(error){
         return res.status(500).send(error)
     }
 }
