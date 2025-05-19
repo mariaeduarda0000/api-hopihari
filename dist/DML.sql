@@ -6,7 +6,7 @@ INSERT INTO rides (nome, tempo_espera, status, area) VALUES
 INSERT INTO users (first_name, last_name, email, password, birth_date, phone) VALUES
 ('Duds', 'Santos', 'dudsMaria@email.com', '$2b$10$nXcS9bEss4Okzwch/phSNOZh2TaLc8XNguvb7X/LZXSCDN68qj576', '2009-06-15', '14999020318'),
 ('Isa', 'Bela', 'isabela@email.com', '$2b$10$nXcS9bEss4Okzwch/phSNOZh2TaLc8XNguvb7X/LZXSCDN68qj576', '2009-04-28', '14947290293'),
-('Lusquinha', 'Santos', 'LuscaSnt@email.com', '$2b$10$nXcS9bEss4Okzwch/phSNOZh2TaLc8XNguvb7X/LZXSCDN68qj576', '2008-12-23', '14940382649');
+('Lusquinha', 'Santos', 'LuscaSnt@email.com', '$2b$10$nXcS9bEss4Okzwch/phSNOZh2TaLc8XNguvb7X/LZXSCDN68qj576', '2008-12-23', '14996002734');
 
 
 INSERT INTO lines (id_ride, id_user)
