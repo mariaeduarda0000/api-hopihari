@@ -8,4 +8,6 @@ router.get('/',
     notificationController.notification
 );
 
+router.put('/', login.required, notificationController.updateNotifications);
+
 module.exports = router;

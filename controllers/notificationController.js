@@ -20,3 +20,25 @@ exports.notification = async (req, res) => {
     }
 
 };
+
+exports.updateNotifications = async (req, res) => {
+    try {
+        const resultado = await mysql.execute(
+            `UPDATE notifications
+			SET status = FALSE
+             WHERE id = ?;`,
+            [req.params.id_notificação]
+        );
+        
+
+        return res.status(201).send({
+            "Mensagem": "Status atualizado com sucesso!",
+            "Resultado ": resultado
+        });
+
+    } catch (error) {
+        console.log("deu ruim");
+        return res.status(500).send (error);
+    }
+
+};

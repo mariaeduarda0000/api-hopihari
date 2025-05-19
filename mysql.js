@@ -7,7 +7,7 @@ const connection = mysql2.createConnection({
     password: "root",
     user: "root",
     port: 3306,
-    database: "hopihari_db"
+    database: "hopi_hari_db"
 });
 
 //Conecta ao banco
