@@ -8,6 +8,7 @@ const helmet = require("helmet")
 const usuariosRoute = require("./routes/usuarios.route");
 const filasRoute = require("./routes/filas.routes");
 const notificationRoute = require("./routes/notification.route");
+const brinquedosRoute = require("./routes/brinquedos.route");
 
 
 //middleware = processa req antes de chegar na rota 
@@ -31,7 +32,8 @@ app.use((req, res, next) => {
 });
 
 app.use("/usuarios", usuariosRoute);
-app.use("/filas",filasRoute)
-app.use("/notifications", notificationRoute)
-
+app.use("/filas",filasRoute);
+app.use("/notifications", notificationRoute);
+app.use("/brinquedos", brinquedosRoute);
+    
 module.exports = app;
