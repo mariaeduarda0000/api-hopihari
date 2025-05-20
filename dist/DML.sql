@@ -27,8 +27,8 @@ SELECT users.first_name AS name,
 		`lines`.*
    FROM `lines`
    INNER JOIN users
-           ON users.id = `lines`.id_users
+           ON users.id = `lines`.id_user
 	INNER JOIN rides
-			ON 	rides.id = `lines`.id_rides
+			ON 	rides.id = `lines`.id_ride
             WHERE rides.area = 'ÁREA 1';
 

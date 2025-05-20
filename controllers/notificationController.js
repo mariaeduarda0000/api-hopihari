@@ -5,7 +5,7 @@ exports.notification = async (req, res) => {
 
         const resultado = await mysql.execute(
             `select * from notifications where status = true
-            AND id_users = ?;`,
+            AND id_user = ?;`,
             
             [res.locals.idusuario]
         );
@@ -27,7 +27,7 @@ exports.updateNotifications = async (req, res) => {
             `UPDATE notifications
 			SET status = FALSE
              WHERE id = ?;`,
-            [req.params.id_notificação]
+            [req.params.idnotifications]
         );
         
 

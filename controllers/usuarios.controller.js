@@ -42,7 +42,7 @@ exports.atualizarUsuario = async (req, res) => {
 
 exports.cadastrarUsuario = async (req, res) => {
     try {
-         const {email, password, first_name, last_name, phone, birth_date} = req.body;
+         const {email,password, first_name, last_name, phone, birth_date} = req.body;
 
         const hash = await bcrypt.hash(req.body.password, 10);
         const resultado = await mysql.execute(
