@@ -18,3 +18,26 @@ exports.cadastrarBrinquedo = async(req, res) => {
     }
 }
 
+
+exports.getBrinquedosByAreaName = async(req, res) => {
+    try{
+
+        resultado = await mysql.execute(
+            `SELECT * FROM rides WHERE area = (SELECT id FROM areas WHERE name = ?);`,
+        [req.params.areaName]);
+
+        if (resultado.length == 0){
+            return res.status(404).send({"Mensagem": "Area do parque não encontrada"});
+        }
+
+        return res.status(200).send({
+            "Mensagem": "Consulta realizada com sucesso!",
+            "Resultados": resultado
+        });
+
+    }catch(error){
+        return res.status(500).send(error);
+    }
+
+    };
+
