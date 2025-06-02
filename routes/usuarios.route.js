@@ -8,4 +8,5 @@ router.put('/:id', usuariosController.atualizarUsuario);
 router.post('/', usuariosController.cadastrarUsuario);
 
 
+
 module.exports = router;
