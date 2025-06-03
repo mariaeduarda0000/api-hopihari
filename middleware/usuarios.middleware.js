@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 
-
+// Função para autenticar o usuário
 exports.required = async(req, res, next) =>{
     try{
         res.locals.idusuario = 0;
@@ -22,6 +22,7 @@ exports.required = async(req, res, next) =>{
     }
 }
 
+// Função para verificar se o usuário é um admin
 exports.userRequired = async(req, res, next) =>{
 
     try{
