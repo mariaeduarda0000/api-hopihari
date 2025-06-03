@@ -21,14 +21,15 @@ app.use(bodyParser.json());
 
 //middleware para permitir o acessso a API
 app.use((req, res, next) => {
-    res.header("Acess-Control-Allow-Origins", "*");
-    res.header("Acess-Control-Allow-Headers", 
-        "Origin, X-Requested-With, Content-type, Accept, Authorization")
-    if (req.method === 'Options'){
-        res.header("Acess-Control-Allow-Methods", "PUT, POST, GET, PATCH, DELETE");
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header(
+        "Access-Control-Allow-Headers", 
+        "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+    );
+    if (req.method === 'OPTIONS') {
+        res.header("Access-Control-Allow-Methods", "PUT, POST, GET, PATCH, DELETE");
     }
     next();
-
 });
 
 app.use("/usuarios", usuariosRoute);
