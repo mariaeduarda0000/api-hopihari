@@ -23,7 +23,7 @@ exports.getBrinquedosByAreaName = async(req, res) => {
     try{
 
         resultado = await mysql.execute(
-            `SELECT * FROM rides WHERE area = (SELECT id FROM areas WHERE name = ?);`,
+            `SELECT * FROM rides WHERE id_areas = (SELECT id FROM areas WHERE name = ?);`,
         [req.params.areaName]);
 
         if (resultado.length == 0){
