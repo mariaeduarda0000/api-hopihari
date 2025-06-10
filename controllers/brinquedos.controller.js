@@ -3,7 +3,7 @@ const mysql = require("../mysql");
 exports.cadastrarBrinquedo = async(req, res) => {
     try{
         const resultados = await mysql.execute(
-            "INSERT INTO rides (name, waiting_time, status, area) VALUES (?, ?, ?, ?)",
+            "INSERT INTO rides (name, waiting_time, status, id_areas) VALUES (?, ?, ?, ?)",
             [req.body.name,
             req.body.waiting_time, 
             req.body.status,
