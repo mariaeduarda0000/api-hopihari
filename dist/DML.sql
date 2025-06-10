@@ -1,39 +1,3 @@
-INSERT INTO rides (nome, tempo_espera, status, area) VALUES
-('Carrossel Encantado', 15, 'Normal', 'ÁREA 1'),
-('Roda Gigante Celestial', 32, 'Normal', 'ÁREA 2'),
-('Carrinhos de Choque', 34, 'Normal', 'ÁREA 4');
-
-INSERT INTO users (first_name, last_name, email, password, birth_date, phone) VALUES
-('Duds', 'Santos', 'dudsMaria@email.com', '$2b$10$nXcS9bEss4Okzwch/phSNOZh2TaLc8XNguvb7X/LZXSCDN68qj576', '2009-06-15', '14999020318'),
-('Isa', 'Bela', 'isabela@email.com', '$2b$10$nXcS9bEss4Okzwch/phSNOZh2TaLc8XNguvb7X/LZXSCDN68qj576', '2009-04-28', '14947290293'),
-('Lusquinha', 'Santos', 'LuscaSnt@email.com', '$2b$10$nXcS9bEss4Okzwch/phSNOZh2TaLc8XNguvb7X/LZXSCDN68qj576', '2008-12-23', '14996002734');
-
-
-INSERT INTO lines (id_ride, id_user)
-VALUES  (8, 10),
-        (8, 11),
-        (9, 11),
-        (9, 12),
-        (10, 10),
-        (10, 12);
-
-
-
-//parte 2 - fila por brinquedo
-
-//mostra o nome de usuário, brinquedo e os IDs
-SELECT users.first_name AS name, 
-       rides.nome AS brinquedo,
-		`lines`.*
-   FROM `lines`
-   INNER JOIN users
-           ON users.id = `lines`.id_user
-	INNER JOIN rides
-			ON 	rides.id = `lines`.id_ride
-            WHERE rides.area = 'ÁREA 1';
-
-
-
 insert into areas (name) 
 values 
 ("Aribabiba"),
@@ -42,7 +6,7 @@ values
 ("Infantasia"),
 ("Mistieri");
 
-INSERT INTO rides (name, waiting_time, status, area)
+INSERT INTO rides (name, waiting_time, status, id_areas)
 VALUES 
 ('NAMUSKITA', 3, 'open', (SELECT id FROM areas WHERE name = 'WildWest')),
 ('LA MINA DEL JOE SACRAMENTO', 4, 'open', (SELECT id FROM areas WHERE name = 'WildWest')),
@@ -54,7 +18,7 @@ VALUES
 ('SPLESHI', 5, 'open', (SELECT id FROM areas WHERE name = 'WildWest')),
 ('TIROLESA', 5, 'open', (SELECT id FROM areas WHERE name = 'WildWest'));
 
-INSERT INTO rides (name, waiting_time, status, area)
+INSERT INTO rides (name, waiting_time, status, id_areas)
 VALUES 
 ('KATAKUMB', 16, 'open', (SELECT id FROM areas WHERE name = 'Mistieri')),
 ('EKATOMB', 10, 'open', (SELECT id FROM areas WHERE name = 'Mistieri')),
@@ -63,14 +27,14 @@ VALUES
 ('VULAVIKING', 5, 'open', (SELECT id FROM areas WHERE name = 'Mistieri')),
 ('VURANG', 8, 'open', (SELECT id FROM areas WHERE name = 'Mistieri'));
 
-INSERT INTO rides (name, waiting_time, status, area)
+INSERT INTO rides (name, waiting_time, status, id_areas)
 VALUES 
 ('THEATRO DI KAMINDA', 30, 'open', (SELECT id FROM areas WHERE name = 'KamindaMundi')),
 ('GIRANDA MUNDI', 8, 'open', (SELECT id FROM areas WHERE name = 'KamindaMundi')),
 ('JOGAKÍ DI KAMINDA', 10, 'open', (SELECT id FROM areas WHERE name = 'KamindaMundi')),
 ('LE VOYAGE', 15, 'open', (SELECT id FROM areas WHERE name = 'KamindaMundi'));
 
-INSERT INTO rides (name, waiting_time, status, area)
+INSERT INTO rides (name, waiting_time, status, id_areas)
 VALUES 
 ('SPEEDI ´64', 5, 'open', (SELECT id FROM areas WHERE name = 'Aribabiba')),
 ('VAMBATÊ', 3, 'open', (SELECT id FROM areas WHERE name = 'Aribabiba')),
@@ -81,7 +45,7 @@ VALUES
 ('PARANGOLÉ', 3, 'open', (SELECT id FROM areas WHERE name = 'Aribabiba')),
 ('HADIKALI', 1, 'open', (SELECT id FROM areas WHERE name = 'Aribabiba'));
 
-INSERT INTO rides (name, waiting_time, status, area)
+INSERT INTO rides (name, waiting_time, status, id_areas)
 VALUES 
 ('KASTEL DI LENDAS', 12, 'open', (SELECT id FROM areas WHERE name = 'Infantasia')),
 ('GIRANDA POKOTÓ', 13, 'open', (SELECT id FROM areas WHERE name = 'Infantasia')),
@@ -93,4 +57,55 @@ VALUES
 ('ASTRONAVI', 6, 'open', (SELECT id FROM areas WHERE name = 'Infantasia')),
 ('KLAPI KLAPI', 8, 'open', (SELECT id FROM areas WHERE name = 'Infantasia'));
 
+//imagens
 
+SELECT name FROM rides;
+update rides set image = "ekatomb.jpg" where name = "EKATOMB";
+UPDATE rides SET image = 'aribabobbi.png' WHERE name = 'ARIBABOBBI';
+UPDATE rides SET image = 'atronavi.jpg' WHERE name = 'ATRONAVI';
+UPDATE rides SET image = 'bugabalum.jpg' WHERE name = 'BUGABALUM';
+UPDATE rides SET image = 'dispenkito.jpg' WHERE name = 'DISPENKITO';
+UPDATE rides SET image = 'ekatomb.jpg' WHERE name = 'EKATOMB';
+UPDATE rides SET image = 'evolution.jpg' WHERE name = 'EVOLUTION';
+UPDATE rides SET image = 'giralata.jpg' WHERE name = 'GIRALATA';
+UPDATE rides SET image = 'girandaMundi.jpg' WHERE name = 'GIRANDAMUNDI';
+UPDATE rides SET image = 'granPalaz.jpg' WHERE name = 'GRANPALAZ';
+UPDATE rides SET image = 'hadikali.jpg' WHERE name = 'HADIKALI';
+UPDATE rides SET image = 'jogaki.jpg' WHERE name = 'JOGAKI';
+UPDATE rides SET image = 'kastel.jpg' WHERE name = 'KASTEL';
+UPDATE rides SET image = 'katakumb.jpg' WHERE name = 'KATAKUMB';
+UPDATE rides SET image = 'katapul.jpg' WHERE name = 'KATAPUL';
+UPDATE rides SET image = 'klapi.jpg' WHERE name = 'KLAPI';
+UPDATE rides SET image = 'Le Voyage.jpg' WHERE name = 'LE VOYAGE';
+UPDATE rides SET image = 'Montezum.jpg' WHERE name = 'MONTEZUM';
+UPDATE rides SET image = 'Parangolé.jpg' WHERE name = 'PARANGOLÉ';
+UPDATE rides SET image = 'pokoto.jpg' WHERE name = 'POKOTO';
+UPDATE rides SET image = 'Rango-Django.jpg' WHERE name = 'RANGO-DJANGO';
+UPDATE rides SET image = 'Rio Bravo.jpg' WHERE name = 'RIO BRAVO';
+UPDATE rides SET image = 'saloon.jpg' WHERE name = 'SALOON';
+UPDATE rides SET image = 'simlakron.jpg' WHERE name = 'SIMLAKRON';
+UPDATE rides SET image = 'spleshi.jpg' WHERE name = 'SPLESHI';
+UPDATE rides SET image = 'theatro.jpg' WHERE name = 'THEATRO';
+UPDATE rides SET image = 'toka.jpg' WHERE name = 'TOKA';
+UPDATE rides SET image = 'vambate.jpg' WHERE name = 'VAMBATE';
+UPDATE rides SET image = 'vulaviking.jpg' WHERE name = 'VULAVIKING';
+UPDATE rides SET image = 'vurang.jpg' WHERE name = 'VURANG';
+UPDATE rides SET image = 'ASTRONAVI.jpg' WHERE name = 'ASTRONAVI';
+UPDATE rides SET image = 'BRAVO BULL.jpg' WHERE name = 'BRAVO BULL';
+UPDATE rides SET image = 'CINEMOTION.jpg' WHERE name = 'CINEMOTION';
+UPDATE rides SET image = 'GHOSTI HOTEL.jpg' WHERE name = 'GHOSTI HOTEL';
+UPDATE rides SET image = 'GIRANDA MUNDI.jpg' WHERE name = 'GIRANDA MUNDI';
+UPDATE rides SET image = 'GIRANDA POKOTO.jpg' WHERE name = 'GIRANDA POKOTO';
+UPDATE rides SET image = 'JAMBALAIA.jpg' WHERE name = 'JAMBALAIA';
+UPDATE rides SET image = 'JOGAKI DI KAMINDA.jpg' WHERE name = 'JOGAKI DI KAMINDA';
+UPDATE rides SET image = 'KASTEL DI LENDAS.jpg' WHERE name = 'KASTEL DI LENDAS';
+UPDATE rides SET image = 'KLAPI KLAPI.jpg' WHERE name = 'KLAPI KLAPI';
+UPDATE rides SET image = 'KOMBOIO.jpg' WHERE name = 'KOMBOIO';
+UPDATE rides SET image = 'LA MINA DEL JOE SACRAMENTO.jpg' WHERE name = 'LA MINA DEL JOE SACRAMENTO';
+UPDATE rides SET image = 'NAMUSKITA.jpg' WHERE name = 'NAMUSKITA';
+UPDATE rides SET image = 'SIMULÁKRON.jpg' WHERE name = 'SIMULÁKRON';
+UPDATE rides SET image = 'SPEEDI ´64.jpg' WHERE name = 'SPEEDI ´64';
+UPDATE rides SET image = 'THEATRO DI KAMINDA.jpg' WHERE name = 'THEATRO DI KAMINDA';
+UPDATE rides SET image = 'TIROLESA.jpg' WHERE name = 'TIROLESA';
+UPDATE rides SET image = 'TOKA DO UGA.jpg' WHERE name = 'TOKA DO UGA';
+UPDATE rides SET image = 'VAMVOLARI.jpg' WHERE name = 'VAMVOLARI';
